@@ -41,12 +41,16 @@
       // console.log('images: ', image);
       image.addEventListener('dblclick', function(event){
         event.preventDefault();
-        console.log('double click check');
-        this.classList.add('favorite');
-        // console.log('this image: ', this);
-        const imageAttribute = this.getAttribute('data-id');
-        favoriteBooks.push(imageAttribute);
-        console.log('favoriteBooks: ', favoriteBooks);
+        // console.log('double click check');
+        if (this.classList.contains('favorite') == true){
+          this.classList.remove('favorite');
+          console.log('class removed');
+        } else {
+          this.classList.add('favorite');
+          const imageAttribute = this.getAttribute('data-id');
+          favoriteBooks.push(imageAttribute);
+          // console.log('favoriteBooks: ', favoriteBooks);
+        }
       });
     }
   }
