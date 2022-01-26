@@ -31,4 +31,24 @@
   }
   render();
 
+  const favoriteBooks = [];
+
+  function initActions() {
+    // const thisInitAction = this;
+    const bookImages = document.querySelectorAll(select.booksPanel.bookImage);
+    // console.log('bookImage: ', bookImages);
+    for (const image of bookImages) {
+      // console.log('images: ', image);
+      image.addEventListener('dblclick', function(event){
+        event.preventDefault();
+        console.log('double click check');
+        this.classList.add('favorite');
+        // console.log('this image: ', this);
+        const imageAttribute = this.getAttribute('data-id');
+        favoriteBooks.push(imageAttribute);
+        console.log('favoriteBooks: ', favoriteBooks);
+      });
+    }
+  }
+  initActions();
 }
